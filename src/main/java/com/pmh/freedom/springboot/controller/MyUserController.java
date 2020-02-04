@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageHelper;
 import com.pmh.freedom.springboot.entity.MyUser;
+import com.pmh.freedom.springboot.page.PageBean;
+import com.pmh.freedom.springboot.page.PageModel;
+import com.pmh.freedom.springboot.page.ResponseResult;
 import com.pmh.freedom.springboot.services.MyUserServices;
 
 @RestController
@@ -35,6 +39,16 @@ public class MyUserController {
 
 	@RequestMapping("/findAllUser")
 	public List<MyUser> findAllUser() {
-		return myUserServices.selectUser();
+		List<MyUser> result = myUserServices.selectUser();
+		return result;
+	}
+
+	@RequestMapping("/findAllUser2")
+	public ResponseResult<PageBean> findAllUser2(PageModel pageModel) {
+		PageHelper.startPage(pageModel.getPageNum(), pageModel.getPageSize());
+		PageHelper.orderBy("id desc");
+		List<MyUser> myUsers = myUserServices.selectUser();
+		PageBean<MyUser> pageBean = new PageBean<>(myUsers);
+		return new ResponseResult<>(200, "success", pageBean);
 	}
 }
