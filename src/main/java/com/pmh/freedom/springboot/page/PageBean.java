@@ -7,10 +7,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.pagehelper.PageInfo;
 
 public class PageBean<T> extends PageInfo<T> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	public PageBean(List<T> list){
         super(list);
     }
-    @JsonIgnore
+//    @JsonIgnore
     @Override
     public int getSize() {
         return super.getSize();
