@@ -20,6 +20,7 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.pmh.freedom.springboot.entity
+  configLocation: classpath:/mybatis-config.xml
   
 pagehelper:
   helperDialect: mysql
