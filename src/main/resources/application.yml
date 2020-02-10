@@ -16,6 +16,8 @@ spring:
         force: true
   jackson:
       default-property-inclusion: non_null
+  redis:
+    host: localhost      
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
@@ -28,3 +30,5 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
   page-size-zero: false 
+  
+
