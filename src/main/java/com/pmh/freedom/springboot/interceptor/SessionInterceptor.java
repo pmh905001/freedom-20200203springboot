@@ -15,15 +15,18 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("SessionInterceptor preHandle");
-        HttpSession session = request.getSession(false);
-        if (session != null && session.getAttribute("user") != null) {
-            return true;
-        } else {
-            PrintWriter printWriter = response.getWriter();
-            printWriter.write("{code: 501, message:\"not login!\"}");
-            return false;
-        }
+		
+		return true;
+		
+//        System.out.println("SessionInterceptor preHandle");
+//        HttpSession session = request.getSession(false);
+//        if (session != null && session.getAttribute("user") != null) {
+//            return true;
+//        } else {
+//            PrintWriter printWriter = response.getWriter();
+//            printWriter.write("{code: 501, message:\"not login!\"}");
+//            return false;
+//        }
     }
 
     @Override

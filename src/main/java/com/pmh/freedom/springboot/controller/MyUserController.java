@@ -1,6 +1,7 @@
 package com.pmh.freedom.springboot.controller;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,6 +22,8 @@ import com.pmh.freedom.springboot.services.MyUserServices;
 public class MyUserController {
 	@Autowired
 	private MyUserServices myUserServices;
+	
+	private static AtomicInteger count=new AtomicInteger(0);
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(HttpServletRequest request) {
@@ -40,7 +43,9 @@ public class MyUserController {
 	@RequestMapping("/findAllUser")
 	public List<MyUser> findAllUser() {
 		List<MyUser> result = myUserServices.selectUser();
+		System.err.println(count.incrementAndGet()); 
 		return result;
+		
 	}
 
 	@RequestMapping("/findAllUser2")

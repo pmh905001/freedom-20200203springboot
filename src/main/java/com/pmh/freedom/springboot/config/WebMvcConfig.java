@@ -17,7 +17,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(sessionInterceptor)
 				.addPathPatterns("/**")
-				.excludePathPatterns("/user/findAllUser2", "/user/register",
+				.excludePathPatterns("/user/findAllUser2", "/kafka/producer","/kafka/consumer","/user/register",
 						"/user/login", "/error");
 	}
 
