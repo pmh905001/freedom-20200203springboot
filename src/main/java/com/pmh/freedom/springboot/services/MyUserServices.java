@@ -12,6 +12,10 @@ import com.pmh.freedom.springboot.mapper.MyUserMapper;
 @Service
 public class MyUserServices {
 
+	public MyUserServices() {
+		super();
+	}
+
 	@Resource
 	private MyUserMapper userMapper;
 
